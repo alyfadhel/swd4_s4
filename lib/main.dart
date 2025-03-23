@@ -2,6 +2,7 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:swd4_s4/core/layout/todo_layout/todo_layout.dart';
 import 'package:swd4_s4/features/bmi/presentation/screens/bmi_screen.dart';
 import 'package:swd4_s4/features/login/login_screen.dart';
 
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
       // theme: ThemeData(
       //   useMaterial3: false,
       // ),
-      home: BmiScreen(),
+      home: TodoLayout(),
     );
   }
 }
