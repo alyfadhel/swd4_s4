@@ -2,12 +2,16 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:swd4_s4/core/layout/todo_layout/todo_layout.dart';
+import 'package:swd4_s4/core/observer/bloc_observer.dart';
 import 'package:swd4_s4/features/bmi/presentation/screens/bmi_screen.dart';
+import 'package:swd4_s4/features/counter/counter_screen.dart';
 import 'package:swd4_s4/features/login/login_screen.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
+  Bloc.observer = MyBlocObserver();
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,

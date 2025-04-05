@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:swd4_s4/core/layout/todo_layout/todo_layout.dart';
-import 'package:swd4_s4/features/todo/new/presentation/widgets/build_task_item.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:swd4_s4/core/layout/todo_layout/controller/cubit.dart';
+import 'package:swd4_s4/core/layout/todo_layout/controller/state.dart';
+import 'package:swd4_s4/core/shared/widgets/todo_widgets/build_task_item.dart';
+import 'package:swd4_s4/core/shared/widgets/todo_widgets/build_tasks.dart';
+
 
 class NewScreen extends StatelessWidget {
   const NewScreen({super.key});
@@ -8,20 +12,16 @@ class NewScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context)
   {
-    return ListView.separated(
-      itemBuilder: (context, index) => BuildTaskItem(
-        model: tasks[index],
-      ),
-      separatorBuilder:
-          (context, index) =>
-          Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 15.0,
-            ),
-            child: Divider(height: 1.0, color: Colors.grey, thickness: 1.5),
-          ),
-      itemCount: tasks.length,
+    return BlocConsumer<AppCubit,AppStates>(
+      listener: (context, state) {
+
+      },
+      builder: (context, state) {
+        var tasks = AppCubit.get(context).newTasks;
+        return BuildTasks(tasks: tasks);
+      },
     );
+
   }
 }
 
